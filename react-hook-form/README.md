@@ -1,6 +1,6 @@
 ## React Hook Form Challenge
 
-Use "react-hook-form" to build a form with custom validations and performance in mind.
+Use [react-hook-form](https://react-hook-form.com) to build a form with custom validations and performance in mind.
 
 ### Implementation specs:
 

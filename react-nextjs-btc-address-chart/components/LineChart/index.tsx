@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
-import { RowData } from "../pages/api/btc-addresses";
+import { RowData } from "../../pages/api/btc-addresses";
+import Chart from "./Chart";
 
 const timeFrames = ["ALL", "1M", "3M", "12M", "YTD"] as const;
 type TimeFrame = typeof timeFrames[number];
@@ -9,6 +10,7 @@ interface Props {
   data: RowData[];
 }
 
+// https://blog.logrocket.com/top-8-react-chart-libraries/
 function chartBuilder({ data }: Props) {
   const [activeFilter, setActiveFilter] = useState<TimeFrame>("ALL");
   const [filtered, setFiltered] = useState(data);
@@ -57,53 +59,21 @@ function chartBuilder({ data }: Props) {
     return filter[timeframe]();
   };
 
-  const chartData = filtered.map((d) => [
-    {
-      id: "Over 1K",
-      data: [{ x: d.date, y: d.over1K }],
-      color: "blue",
-      key: "Over 1K",
-    },
-    {
-      id: "Over 10K",
-      data: [{ x: d.date, y: d.over10K }],
-      color: "purple",
-      key: "Over 10K",
-    },
-    {
-      id: "Over 100K",
-      data: [{ x: d.date, y: d.over100K }],
-      color: "purple",
-      key: "Over 100K",
-    },
-    {
-      id: "Over 1M",
-      data: [{ x: d.date, y: d.over1M }],
-      color: "purple",
-      key: "Over 1M",
-    },
-    {
-      id: "Over 10M",
-      data: [{ x: d.date, y: d.over10M }],
-      color: "purple",
-      key: "Over 10M",
-    },
-  ]);
-
-  console.log(chartData);
-
   return (
-    <div className="h-80">
-      <div className="flex justify-center mt-4 px-4 gap-4">
+    <>
+      <section>
+        <Chart />
+      </section>
+      <section className="flex items-center justify-center mt-3 px-3 gap-3">
         {timeFrames.map((timeframe) => {
           return (
             <button
               key={timeframe}
               className={clsx(
-                "p-2 w-20 border w- border-slate-800 rounded-xl bg-slate-300",
+                "p-2 w-20 border border-slate-800 rounded-md bg-slate-300",
                 "transition duration-200",
-                "hover:bg-blue-200 hover:translate-y-1 active:translate-y-1",
-                `${activeFilter === timeframe && "bg-blue-400"}`
+                "hover:bg-purple-200 hover:translate-y-1",
+                `${activeFilter === timeframe && "bg-purple-400"}`
               )}
               onClick={() => {
                 setActiveFilter(timeframe);
@@ -113,8 +83,8 @@ function chartBuilder({ data }: Props) {
             </button>
           );
         })}
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
 

@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import { Suspense } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import { RowData } from "./api/btc-addresses";
-import ChartBuilder from "../components/ChartBuilder";
+import LineChart from "../components/LineChart";
 
 interface Props {
   data: RowData[];
@@ -19,7 +19,7 @@ export default function Home({ data }: Props) {
         </title>
       </Head>
       <section>
-        <div className="flex justify-center items-center max-w-2xl mx-auto h-3/4">
+        <div className="flex justify-center items-center mx-auto max-w-2xl h-3/4">
           <Suspense
             fallback={
               <ThreeDots
@@ -32,7 +32,7 @@ export default function Home({ data }: Props) {
               />
             }
           >
-            <ChartBuilder data={data} />
+            <LineChart data={data} />
           </Suspense>
         </div>
       </section>

@@ -12,46 +12,52 @@ import {
 
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    date: "Jan 2023",
+    over1K: 10,
+    over10K: 0,
+    over100K: 0,
+    over1M: 0,
+    over10M: 0,
   },
   {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    date: "Feb 2023",
+    over1K: 20,
+    over10K: 10,
+    over100K: 0,
+    over1M: 0,
+    over10M: 0,
   },
   {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    date: "March 2023",
+    over1K: 30,
+    over10K: 15,
+    over100K: 4,
+    over1M: 0,
+    over10M: 0,
   },
   {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    date: "April 2023",
+    over1K: 33,
+    over10K: 30,
+    over100K: 10,
+    over1M: 2,
+    over10M: 1,
   },
   {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    date: "May 2023",
+    over1K: 60,
+    over10K: 40,
+    over100K: 20,
+    over1M: 9,
+    over10M: 5,
   },
   {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    date: "June 2023",
+    over1K: 120,
+    over10K: 33,
+    over100K: 15,
+    over1M: 23,
+    over10M: 10,
   },
 ];
 
@@ -59,24 +65,17 @@ export const Chart = () => {
   return (
     <div className="h-96 w-full">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{ left: 24, right: 24 }}
-        >
+        <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="date" fontSize=".5rem" />
           <YAxis />
           <Tooltip />
-          <Legend />
-          <Line
-            type="monotone"
-            dataKey="pv"
-            stroke="#8884d8"
-            activeDot={{ r: 8 }}
-          />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+          <Legend margin={{ left: 12, right: 12 }} fontSize=".5rem" />
+          <Line type="monotone" dataKey="over1K" stroke="red" />
+          <Line type="monotone" dataKey="over10K" stroke="blue" />
+          <Line type="monotone" dataKey="over100K" stroke="green" />
+          <Line type="monotone" dataKey="over1M" stroke="purple" />
+          <Line type="monotone" dataKey="over10M" stroke="black" />
         </LineChart>
       </ResponsiveContainer>
     </div>

@@ -19,7 +19,7 @@ export default function Home({ data }: Props) {
         </title>
       </Head>
       <section>
-        <div className="flex justify-center items-center mx-auto max-w-2xl h-3/4">
+        <div className="flex justify-center items-center">
           <Suspense
             fallback={
               <ThreeDots

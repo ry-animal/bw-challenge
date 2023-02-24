@@ -9,6 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { RowData } from "../../pages/api/btc-addresses";
 
 const data = [
   {
@@ -61,7 +62,11 @@ const data = [
   },
 ];
 
-export const Chart = () => {
+interface Props {
+  data: RowData[];
+}
+
+export const Chart = ({ data }: Props) => {
   return (
     <div className="h-96 w-full">
       <ResponsiveContainer width="100%" height="100%">

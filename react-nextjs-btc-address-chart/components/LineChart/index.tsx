@@ -62,7 +62,7 @@ function chartBuilder({ data }: Props) {
   return (
     <>
       <section className="flex flex-col items-center justify-center my-4">
-        <Chart />
+        <Chart data={filtered} />
         <div className="flex flex-row mt-4 px-3 gap-3">
           {timeFrames.map((timeframe) => {
             return (

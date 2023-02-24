@@ -67,6 +67,7 @@ interface Props {
 }
 
 export const Chart = ({ data }: Props) => {
+  const keys = Object.keys(data[0]);
   return (
     <div className="h-96 w-3/4">
       <ResponsiveContainer width="100%" height="100%">
@@ -76,46 +77,20 @@ export const Chart = ({ data }: Props) => {
           <YAxis fontSize=".5rem" />
           <Tooltip />
           <Legend margin={{ left: 12, right: 12 }} fontSize=".5rem" />
-          <Line
-            type="monotone"
-            dataKey="over1K"
-            stroke="red"
-            strokeWidth={1}
-            dot={false}
-            isAnimationActive={false}
-          />
-          <Line
-            type="monotone"
-            dataKey="over10K"
-            stroke="blue"
-            strokeWidth={1}
-            dot={false}
-            isAnimationActive={false}
-          />
-          <Line
-            type="monotone"
-            dataKey="over100K"
-            stroke="green"
-            strokeWidth={1}
-            dot={false}
-            isAnimationActive={false}
-          />
-          <Line
-            type="monotone"
-            dataKey="over1M"
-            stroke="purple"
-            strokeWidth={1}
-            dot={false}
-            isAnimationActive={false}
-          />
-          <Line
-            type="monotone"
-            dataKey="over10M"
-            stroke="black"
-            strokeWidth={1}
-            dot={false}
-            isAnimationActive={false}
-          />
+          {keys.map((key) => {
+            if (key !== "date") {
+              return (
+                <Line
+                  type="monotone"
+                  dataKey={key}
+                  stroke="red" //make this more dynamic
+                  strokeWidth={1}
+                  dot={false}
+                  isAnimationActive={false}
+                />
+              );
+            }
+          })}
         </LineChart>
       </ResponsiveContainer>
     </div>

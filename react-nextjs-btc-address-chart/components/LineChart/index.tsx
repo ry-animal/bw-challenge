@@ -61,28 +61,28 @@ function chartBuilder({ data }: Props) {
 
   return (
     <>
-      <section>
+      <section className="flex flex-col items-center justify-center my-4">
         <Chart />
-      </section>
-      <section className="flex items-center justify-center mt-3 px-3 gap-3">
-        {timeFrames.map((timeframe) => {
-          return (
-            <button
-              key={timeframe}
-              className={clsx(
-                "p-2 w-20 border border-slate-800 rounded-md bg-slate-300",
-                "transition duration-200",
-                "hover:bg-purple-200 hover:translate-y-1",
-                `${activeFilter === timeframe && "bg-purple-400"}`
-              )}
-              onClick={() => {
-                setActiveFilter(timeframe);
-              }}
-            >
-              {timeframe}
-            </button>
-          );
-        })}
+        <div className="flex flex-row mt-4 px-3 gap-3">
+          {timeFrames.map((timeframe) => {
+            return (
+              <button
+                key={timeframe}
+                className={clsx(
+                  "p-2 w-20 border border-slate-800 rounded-md bg-slate-300",
+                  "transition duration-200",
+                  "hover:bg-purple-200 hover:translate-y-1",
+                  `${activeFilter === timeframe && "bg-purple-400"}`
+                )}
+                onClick={() => {
+                  setActiveFilter(timeframe);
+                }}
+              >
+                {timeframe}
+              </button>
+            );
+          })}
+        </div>
       </section>
     </>
   );

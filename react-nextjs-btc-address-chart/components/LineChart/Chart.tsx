@@ -30,18 +30,24 @@ export const Chart = ({ data }: Props) => {
     <div className="h-96 w-3/4">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" fontSize=".5rem" />
-          <YAxis fontSize=".5rem" />
+          <CartesianGrid strokeDasharray="1 1" />
+          <XAxis
+            dataKey="date"
+            fontSize=".5rem"
+            angle={20}
+            dx={5}
+            tickMargin={12}
+          />
+          <YAxis fontSize=".5rem" type="number" domain={["auto", "auto"]} />
           <Tooltip />
-          <Legend margin={{ left: 12, right: 12 }} fontSize=".5rem" />
+          <Legend margin={{ left: 12, right: 12, top: 24 }} fontSize=".5rem" />
           {Object.keys(lineColors).map((key) => {
             return (
               <Line
                 type="monotone"
                 dataKey={key}
                 stroke={lineColors[key as ChartLines]}
-                strokeWidth={1}
+                strokeWidth={2}
                 dot={false}
                 isAnimationActive={false}
               />

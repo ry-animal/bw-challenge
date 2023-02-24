@@ -19,22 +19,20 @@ export default function Home({ data }: Props) {
         </title>
       </Head>
       <section>
-        <div className="flex justify-center items-center">
-          <Suspense
-            fallback={
-              <ThreeDots
-                height="120"
-                width="120"
-                radius="9"
-                color="#4fa94d"
-                ariaLabel="three-dots-loading"
-                visible={true}
-              />
-            }
-          >
-            <LineChart data={data} />
-          </Suspense>
-        </div>
+        <Suspense
+          fallback={
+            <ThreeDots
+              height="120"
+              width="120"
+              radius="9"
+              color="#4fa94d"
+              ariaLabel="three-dots-loading"
+              visible={true}
+            />
+          }
+        >
+          <LineChart data={data} />
+        </Suspense>
       </section>
     </Layout>
   );

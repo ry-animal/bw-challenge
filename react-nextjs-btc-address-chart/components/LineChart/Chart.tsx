@@ -68,19 +68,54 @@ interface Props {
 
 export const Chart = ({ data }: Props) => {
   return (
-    <div className="h-96 w-full">
+    <div className="h-96 w-3/4">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" fontSize=".5rem" />
-          <YAxis />
+          <YAxis fontSize=".5rem" />
           <Tooltip />
           <Legend margin={{ left: 12, right: 12 }} fontSize=".5rem" />
-          <Line type="monotone" dataKey="over1K" stroke="red" />
-          <Line type="monotone" dataKey="over10K" stroke="blue" />
-          <Line type="monotone" dataKey="over100K" stroke="green" />
-          <Line type="monotone" dataKey="over1M" stroke="purple" />
-          <Line type="monotone" dataKey="over10M" stroke="black" />
+          <Line
+            type="monotone"
+            dataKey="over1K"
+            stroke="red"
+            strokeWidth={1}
+            dot={false}
+            isAnimationActive={false}
+          />
+          <Line
+            type="monotone"
+            dataKey="over10K"
+            stroke="blue"
+            strokeWidth={1}
+            dot={false}
+            isAnimationActive={false}
+          />
+          <Line
+            type="monotone"
+            dataKey="over100K"
+            stroke="green"
+            strokeWidth={1}
+            dot={false}
+            isAnimationActive={false}
+          />
+          <Line
+            type="monotone"
+            dataKey="over1M"
+            stroke="purple"
+            strokeWidth={1}
+            dot={false}
+            isAnimationActive={false}
+          />
+          <Line
+            type="monotone"
+            dataKey="over10M"
+            stroke="black"
+            strokeWidth={1}
+            dot={false}
+            isAnimationActive={false}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>

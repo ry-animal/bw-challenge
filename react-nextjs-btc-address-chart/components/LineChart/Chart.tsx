@@ -27,10 +27,10 @@ export const Chart = ({ data }: Props) => {
   };
 
   return (
-    <div className="h-96 w-3/4">
+    <div className="h-3/4 w-3/4">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="1 1" />
+        <LineChart data={data} margin={{ bottom: 12 }}>
+          <CartesianGrid strokeDasharray="2 4" />
           <XAxis
             dataKey="date"
             fontSize=".5rem"
@@ -40,7 +40,7 @@ export const Chart = ({ data }: Props) => {
           />
           <YAxis fontSize=".5rem" type="number" domain={["auto", "auto"]} />
           <Tooltip />
-          <Legend margin={{ left: 12, right: 12, top: 24 }} fontSize=".5rem" />
+          <Legend margin={{ left: 12, right: 12 }} fontSize=".5rem" />
           {Object.keys(lineColors).map((key) => {
             return (
               <Line

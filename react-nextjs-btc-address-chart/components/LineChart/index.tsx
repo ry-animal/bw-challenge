@@ -71,7 +71,7 @@ function chartBuilder({ data }: Props) {
                 className={clsx(
                   "p-2 max-w-16 md:w-20 border border-slate-800 rounded-md bg-slate-300",
                   "transition duration-200",
-                  "hover:bg-purple-200 hover:translate-y-1",
+                  "hover:bg-purple-200 hover:translate-y-1 active:bg-purple-400",
                   `${activeFilter === timeframe && "bg-purple-400"}`
                 )}
                 onClick={() => {
